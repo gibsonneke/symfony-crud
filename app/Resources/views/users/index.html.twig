@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+{% endblock %}
+
+{% block body %}
+      <div class="medium-12 large-12 columns">
+        <h4>Users</h4>
+        <div class="createUser col-sm-4">
+            {% include 'users/form.html.twig' %}
+        </div>
+
+        <div class="table-user container col-sm-7 col-sm-offset-1">
+            <table class="table-title table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th class="col-md-2">Name</th>
+                    <th class="col-md-1">Age</th>
+                    <th class="col-md-1">Delete User</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    {% for user in users  %}
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.age }}</td>
+                    <td>
+                        <a id="{{ user.id }}" class="deleteUser hollow button warning" href="">DELETE</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+        <script src="{{ asset('assets/vendor/jquery/dist/jquery.min.js')  }}"></script>
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+        <script src="{{ asset('js/app.js') }}"></script>
+{% endblock %}

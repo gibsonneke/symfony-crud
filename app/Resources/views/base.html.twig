@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <title>Symfony CRUD</title>
+            <link rel="icon" type="image/x-icon" href="favicon.ico" />
+            <link rel="stylesheet" href="{{ asset('css/foundation.min.css') }}">
+             {% block stylesheet %} {% endblock %}
+    </head>
+    <body>
+
+    <div class="top-bar">
+      <div class="row">
+        <div class="top-bar-left">
+          <ul class="dropdown menu">
+            <li><a href="{{ path('tasks') }}">Basic CRUD</a></li>
+            <li><a href="{{ path('users') }}">Ajax CRUD</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <br />
+    
+    <div class="bodyBlock">
+    
+    {% block body %} {% endblock %}
+    
+    </div>
+
+    </body>
+    
+    {% block javascript %} {% endblock %}
+</html>

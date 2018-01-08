@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="row">
+      <div class="medium-12 large-12 columns">
+          <ul>
+          {% for error in errors %}
+            <li>{{ error.propertyPath|capitalize }} : {{ error.message }}</li>
+          {% endfor %}
+          </ul>
+        <h4>{{ mode == 'new_task' ? 'New Task' : 'Modify Task' }}</h4>
+        <form action="" method="post">
+          <div class="medium-4  columns">
+            <label>Title</label>
+            <input name="form[title]" value="{{ form.title is defined ? form.title : '' }}" type="text" />
+          </div>
+          <div class="medium-4  columns">
+            <label>Description</label>
+            <input name="form[description]" value="{{ form.description is defined ? form.description : '' }}" type="text" />
+          </div>
+          <div class="medium-12  columns">
+            <input type="submit" value="SAVE" class="button success hollow" />
+          </div>
+        </form>
+      </div>
+    </div>
+{% endblock %}
