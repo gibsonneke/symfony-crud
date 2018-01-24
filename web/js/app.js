@@ -9,13 +9,14 @@
                 data: $(this).serialize(),
                 success: function (response) {
                     console.log("Succes!");
-                    location.reload();
+                    $('#table-output').load(document.URL +  ' #table-output');
                 },
                 error: function (response) {
                     console.log("Error: " + response);
                 }
             });
         });
+        
 
         $('.deleteUser').click(function (e) {
             var getUrl = Routing.generate('deleteUser', {'id': $(this).attr('id')});
@@ -27,7 +28,7 @@
                 data: $(this).serialize(),
                 success: function (response) {
                     console.log("Succes!");
-                    location.reload();
+                    $('#table-output').load(document.URL +  ' #table-output');
                 },
                 error: function (response) {
                     console.log("Error: " + response);
